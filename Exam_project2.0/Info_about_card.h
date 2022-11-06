@@ -9,7 +9,7 @@ protected:
 	string surname;
 	string bank_name;
 	string number;
-	string end_date;
+	string data;
 	int cvv;
 
 public:
@@ -20,7 +20,7 @@ public:
 		bank_name = bn;
 		number = num;
 		this->cvv = cvv;
-		end_date = ed;
+		data = ed;
 	}
 	info_about_card(info_about_card& obj) {
 		name = obj.name;
@@ -28,7 +28,7 @@ public:
 		bank_name = obj.bank_name;
 		number = obj.number;
 		cvv = obj.cvv;
-		end_date = obj.end_date;
+		data = obj.data;
 	}
 
 	void InputCard() {
@@ -42,7 +42,7 @@ public:
 		cout << "Enter number of your card: ";
 		cin >> number;//¬вод номер карты
 		cout << "Enter date: ";
-		cin >> end_date;//¬вод даты рождени€
+		cin >> data;//¬вод даты рождени€
 		cout << "Enter your cvv code: ";
 		cin >> cvv;//¬вод трех задних цифыр
 		while (cvv < 100 || cvv > 999) { // ¬вод цифр не больше 3 если будет больше 3 тогда выдаст ошибку 
@@ -57,7 +57,7 @@ public:
 		cout << "Bank: " << bank_name << endl;
 		cout << "Card number: " << number << endl;
 		cout << "CVV code: " << cvv << endl;
-		cout << "Date: " << end_date << endl;
+		cout << "Date: " << data << endl;
 	}
 
 };

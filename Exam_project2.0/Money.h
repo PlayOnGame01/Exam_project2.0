@@ -6,18 +6,18 @@ class Money {
 private:
 	string name;
 	string surname;
-	string number;
+	string numb;
 
 public:
 	Money() = default;
 	Money(string n, string s, string num) {
 		name = n;
 		surname = s;
-		number = num;
+		numb = num;
 	}
 
 	string Number_money() { //Информация о кошильке 
-		return number;
+		return numb;
 	}
 
 	void Input() {
@@ -27,12 +27,12 @@ public:
 		cout << "Enter surname: ";
 		cin >> surname;
 		cout << "Enter number of wallet: ";
-		cin >> number;
+		cin >> numb;
 		cout << endl;
 	}
 	void Print() {
 		cout << "Name: " << name << endl;
 		cout << "Surname: " << surname << endl;
-		cout << "Number of wallet: " << number << endl;
+		cout << "Number of wallet: " << numb << endl;
 	}
 };
