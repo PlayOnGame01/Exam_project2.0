@@ -36,8 +36,8 @@ void Menu() {
 	string line;
 
 	string number_card;
-	int choose, choose_case1, choose_case2, choose_case3, choose_case4, choose_case5;
-	int choose_case_3_1, choose_case_3_2, choose_case_3_3, choose_case_3_4, choose_case_3_5;
+	int choose, case1, case2, case3, case4, case5;
+	int case3_1, case3_2, case3_3, case3_4, case3_5;
 	bool exit = false;
 	while (exit != true) {
 		cout << "\n1. Add\n2. Show\n3. Entering costs\n4. Expense Report\n5. Exit\n-> ";
@@ -45,8 +45,8 @@ void Menu() {
 		switch (choose) {
 		case 1:
 			cout << "\n1. Credit card\n2. Privat card\n 3. Mono card\n4. Money\n-> "; // в первом кейсе добавл€ем информаию о карте 
-			cin >> choose_case1;
-			switch (choose_case1) {
+			cin >> case1;
+			switch (case1) {
 			case 1:
 				credit_card.push_back(new Credit_card());
 				credit_card[credit_counter]->Input();
@@ -75,8 +75,8 @@ void Menu() {
 
 		case 2:
 			cout << "\n1. Credit card\n2. Privat card\n 3. Mono card\n4. Money\n5. All\n-> "; // выбираем карту и смотрим информацию по карте 
-			cin >> choose_case2;
-			switch (choose_case2) {
+			cin >> case2;
+			switch (case2) {
 			case 1:
 				cout << "\nEnter number of card: ";
 				cin >> number_card;
@@ -147,13 +147,13 @@ void Menu() {
 
 		case 3:
 			cout << "\n1. Clothes\n2. Sport\n3. Food\n4. Video game\n-> ";
-			cin >> choose_case3;
-			switch (choose_case3) {
+			cin >> case3;
+			switch (case3) {
 			case 1:
 				cout << "\nChoose card:" << endl;
 				cout << "1. Credit card\n2. privat card\n3. mono card\n-> ";
-				cin >> choose_case_3_1;
-				switch (choose_case_3_1) {
+				cin >> case3_1;
+				switch (case3_1) {
 				case 1:
 					cout << "Enter number of card: ";
 					cin >> number_card;
@@ -195,8 +195,8 @@ void Menu() {
 			case 2:
 				cout << "\nChoose card:" << endl;
 				cout << "1. Credit card\n2. privat card\n3. mono card\n-> ";
-				cin >> choose_case_3_2;
-				switch (choose_case_3_2) {
+				cin >> case3_2;
+				switch (case3_2) {
 				case 1:
 					cout << "Enter number of card: ";
 					cin >> number_card;
@@ -235,8 +235,8 @@ void Menu() {
 			case 3:
 				cout << "\nChoose card:" << endl;
 				cout << "1. Credit card\n2. privat card\n3. mono card\n-> ";
-				cin >> choose_case_3_3;
-				switch (choose_case_3_3) {
+				cin >> case3_3;
+				switch (case3_3) {
 				case 1:
 					cout << "Enter number of credit card: ";
 					cin >> number_card;
@@ -275,8 +275,8 @@ void Menu() {
 			case 4:
 				cout << "\nChoose card:" << endl;
 				cout << "1. Credit card\n2. privat card\n3. mono card\n-> ";
-				cin >> choose_case_3_4;
-				switch (choose_case_3_4) {
+				cin >> case3_4;
+				switch (case3_4) {
 				case 1:
 					cout << "Enter number of card: ";
 					cin >> number_card;
@@ -318,8 +318,8 @@ void Menu() {
 			out_report.open("Save report.txt");
 			in_report.open("Save report.txt");
 			cout << "\n1. Credit card\n2. privat card\n3. mono card\n-> ";
-			cin >> choose_case4;
-			if (choose_case4 == 1) {
+			cin >> case4;
+			if (case4 == 1) {
 				cout << "\nEnter number of credit card: ";
 				cin >> number_card;
 				cout << endl;
@@ -333,7 +333,7 @@ void Menu() {
 				}
 				cin.ignore();
 			}
-			else if (choose_case4 == 2) {
+			else if (case4 == 2) {
 				cout << "\nEnter number of privat card: ";
 				cin >> number_card;
 				cout << endl;
@@ -346,25 +346,25 @@ void Menu() {
 					}
 				}
 				cin.ignore();
-			if (choose_case5 == 3) {
-				cout << "\nEnter number of privat card: ";
-				cin >> number_card;
-				cout << endl;
-				for (int i = 0; i < Mono_card.size(); i++) {
-					if (number_card == Mono_card[i]->NumberOfMonoCard()) {
-						m.emplace(make_pair(Mono_card[i]->getclothes_mono(), "Clothes: "));
-						m.emplace(make_pair(Mono_card[i]->getsport_mono(), "Sport: "));
-						m.emplace(make_pair(Mono_card[i]->getFood_mono(), "Food: "));
-						m.emplace(make_pair(Mono_card[i]->getVideo_game_mono(), "Video game: "));
+				if (case4 == 3) {
+					cout << "\nEnter number of privat card: ";
+					cin >> number_card;
+					cout << endl;
+					for (int i = 0; i < Mono_card.size(); i++) {
+						if (number_card == Mono_card[i]->NumberOfMonoCard()) {
+							m.emplace(make_pair(Mono_card[i]->getclothes_mono(), "Clothes: "));
+							m.emplace(make_pair(Mono_card[i]->getsport_mono(), "Sport: "));
+							m.emplace(make_pair(Mono_card[i]->getFood_mono(), "Food: "));
+							m.emplace(make_pair(Mono_card[i]->getVideo_game_mono(), "Video game: "));
+						}
 					}
+					cin.ignore();
 				}
-				cin.ignore();
 			}
-
-			cout << "\n1. spend money on the first day\n2.  spend money on the week\n-> ";
-			cin >> choose_case4;
-			if (choose_case4 == 1) {
-				day++;
+			cout << "\n1. spend money on the first day\n2.  spend money on the week\n-> ";// «атраты за первый день и за неделю 
+			cin >> case4;
+			if (case4 == 1) {
+				day++; // ƒень увеличиваетьс€ на один до 7 не превыша€ 7 
 				out_report << day << endl;
 				for (it = m.end(); it != m.begin(); ) {
 					it--;
@@ -380,7 +380,7 @@ void Menu() {
 					cout << "Finished..." << endl;
 				}
 			}
-			else if (choose_case4 == 2) {
+			else if (case4 == 2) {
 				day++;
 				out_report << day << endl;
 				for (it = m.end(); it != m.begin(); ) {
