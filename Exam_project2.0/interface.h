@@ -19,7 +19,7 @@ void Menu() {
 	Iter it;
 
 
-	vector<Credit_card*> credit_card;
+	vector<Credit_card*> credit_card; // работа с динамическим массивом который может работать с выделенной паматью 
 	vector<privat_card*> Privat_card;
 	vector<mono_card*> Mono_card;
 	vector<Money*> money;
